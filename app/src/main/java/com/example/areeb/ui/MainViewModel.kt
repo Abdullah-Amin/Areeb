@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel() {
 
-    val repo = GithubRepo()
+    private val repo = GithubRepo()
 
     val githubRepo = MutableLiveData<ArrayList<GithubRepoResponseItem>>()
 

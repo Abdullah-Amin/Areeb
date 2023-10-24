@@ -1,11 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
     namespace 'com.example.areeb'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.areeb"
@@ -60,4 +61,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation 'androidx.activity:activity-ktx:1.8.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 }
