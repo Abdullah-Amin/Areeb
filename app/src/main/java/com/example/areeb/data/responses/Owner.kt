@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName
 data class Owner(
     @SerializedName("avatar_url")
     val avatarUrl: String?,
+    @SerializedName("url")
+    val ownerUrl: String?,
     @SerializedName("login")
-    val login: String?,
-    @SerializedName("id")
-    val id: Int?
+    val login: String?
 )
