@@ -31,9 +31,12 @@ class MainViewModel : ViewModel() {
     val githubRepoOwner = _githubRepoOwner
 
     private fun getGithubRepoItem() {
+//        _githubRepo.value = State.Loading("Loading...")
         viewModelScope.launch {
             repo.getRepos().collect {
-//                _githubRepo.value = State.Loading
+//                _githubRepo.value = it
+                Log.i("abdo", "getGithubRepoOwner: $it")
+
                 when(it){
                     is State.Error -> {
                         _githubRepo.value = State.Error(it.error)
@@ -41,8 +44,8 @@ class MainViewModel : ViewModel() {
                         Log.i("abdo", "getGithubRepoItem: ${it.error?.get(0)}")
                         _githubRepo.postValue(it)
                     }
-                    State.Loading -> {
-//                        _githubRepo.value = State.Loading
+                    is State.Loading -> {
+//                        _githubRepo.value = State.Loading()
                         Log.i("abdo", "getGithubRepoItem: collecting List ")
                         Log.i("abdo", "getGithubRepoItem: $it)")
 //                        _githubRepo.postValue(it)
@@ -53,6 +56,7 @@ class MainViewModel : ViewModel() {
                         Log.i("abdo", "getGithubRepoItem: ${it.data?.get(0)}")
                         _githubRepo.postValue(it)
                     }
+                    else -> {}
                 }
             }
         }
@@ -63,9 +67,11 @@ class MainViewModel : ViewModel() {
     }
 
     private fun getGithubRepoOwner(ownerEndPoint: String) {
+//        _githubRepoOwner.value = State.Loading("Loading...")
         viewModelScope.launch {
             repo.getOwner(ownerEndPoint).collect {
-//                _githubRepoOwner.value = State.Loading
+//                _githubRepoOwner.value = it
+                Log.i("abdo", "getGithubRepoOwner: $it")
                 when(it){
                     is State.Error -> {
                         _githubRepoOwner.value = State.Error(it.error)
@@ -73,8 +79,8 @@ class MainViewModel : ViewModel() {
                         Log.i("abdo", "getGithubRepoItem: ${it.error?.get(0)}")
                         _githubRepoOwner.postValue(it)
                     }
-                    State.Loading -> {
-//                        _githubRepoOwner.value = State.Loading
+                    is State.Loading -> {
+//                        _githubRepoOwner.value = State.Loading()
                         Log.i("abdo", "getGithubRepoItem: collecting List ")
                         Log.i("abdo", "getGithubRepoItem: $it)")
 //                        _githubRepoOwner.postValue(it)
@@ -85,6 +91,7 @@ class MainViewModel : ViewModel() {
                         Log.i("abdo", "getGithubRepoItem: ${it.data?.name}")
                         _githubRepoOwner.postValue(it)
                     }
+                    else -> {}
                 }
             }
         }

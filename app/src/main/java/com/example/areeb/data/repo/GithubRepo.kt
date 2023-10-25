@@ -13,7 +13,7 @@ class GithubRepo {
 
     suspend fun getRepos(): Flow<State<ArrayList<GithubRepoResponseItem>?>> {
         return flow {
-            emit(State.Loading)
+            emit(State.Loading())
             val result = GithubApiClient.client().getRepos()
             if (result.isSuccessful){
                 Log.i("asd", "getRepos: repo success ${result.errorBody()}")
@@ -29,7 +29,7 @@ class GithubRepo {
 
     suspend fun getOwner(ownerEndPoint: String): Flow<State<OwnerResponse?>>{
         return flow {
-            emit(State.Loading)
+            emit(State.Loading())
             val result = GithubApiClient.client().getOwner(ownerEndPoint)
             if (result.isSuccessful){
                 Log.i("asd", "getRepos: owner success ${result.errorBody()}")

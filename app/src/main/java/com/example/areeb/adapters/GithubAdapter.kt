@@ -32,14 +32,11 @@ class GithubAdapter(
             .placeholder(R.drawable.ic_launcher_foreground)
             .into(holder.binding.imageView)
 
-        val owner = param.getOwnerEndPoint(githubList?.get(position)?.owner?.login)
-        holder.binding.nameTV.text = owner?.name
-        holder.binding.dateTV.text = owner?.createdAt
+        holder.binding.nameTV.text = githubList?.get(position)?.owner?.login
 
-        holder.binding.repositoryTV.text = githubList?.get(position)?.name
-
-
-//        notifyDataSetChanged()
+        holder.itemView.setOnClickListener {
+            param.getOwnerEndPoint(githubList?.get(position)?.owner?.login)
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")

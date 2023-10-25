@@ -8,6 +8,8 @@ android {
     namespace 'com.example.areeb'
     compileSdk 34
 
+    def enableProguardInReleaseBuilds = false
+
     defaultConfig {
         applicationId "com.example.areeb"
         minSdk 24

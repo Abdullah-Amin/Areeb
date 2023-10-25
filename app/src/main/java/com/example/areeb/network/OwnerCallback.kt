@@ -4,5 +4,5 @@ import com.example.areeb.data.responses.OwnerResponse
 
 interface OwnerCallback {
 
-    fun getOwnerEndPoint(endPoint: String?): OwnerResponse?
+    fun getOwnerEndPoint(endPoint: String?)
 }
