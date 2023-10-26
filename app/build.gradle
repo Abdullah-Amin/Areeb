@@ -8,7 +8,7 @@ android {
     namespace 'com.example.areeb'
     compileSdk 34
 
-    def enableProguardInReleaseBuilds = false
+    def enableProguardInReleaseBuilds = true
 
     defaultConfig {
         applicationId "com.example.areeb"
@@ -66,5 +66,7 @@ dependencies {
 
     implementation 'androidx.activity:activity-ktx:1.8.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation "androidx.paging:paging-runtime:3.1.1"
 
 }

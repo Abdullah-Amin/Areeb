@@ -1,4 +1,4 @@
-package com.example.areeb
+package com.example.areeb.utils
 
 object Constants {
     val BASE_URL = "https://api.github.com/"

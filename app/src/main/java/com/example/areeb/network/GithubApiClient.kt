@@ -1,6 +1,6 @@
 package com.example.areeb.network
 
-import com.example.areeb.Constants
+import com.example.areeb.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

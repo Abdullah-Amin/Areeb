@@ -23,8 +23,6 @@ class GithubAdapter(
 
     override fun getItemCount(): Int = githubList!!.size
 
-    @SuppressLint("NotifyDataSetChanged")
-    @OptIn(DelicateCoroutinesApi::class)
     override fun onBindViewHolder(holder: GithubHolder, position: Int) {
         Log.i("abdo", "onBindViewHolder: ${githubList?.get(position)}")
         Picasso.get()
@@ -37,15 +35,6 @@ class GithubAdapter(
         holder.itemView.setOnClickListener {
             param.getOwnerEndPoint(githubList?.get(position)?.owner?.login)
         }
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun setData(newList: ArrayList<GithubRepoResponseItem>){
-//        val difUtil = githubList?.let { GithubRepoDifUtil(it, newList) }
-//            ?.let { DiffUtil.calculateDiff(it) }
-        githubList = newList
-//        notifyDataSetChanged()
-//        difUtil?.dispatchUpdatesTo(this)
     }
 
     class GithubHolder(val binding: RepoItemBinding) : RecyclerView.ViewHolder(binding.root)
